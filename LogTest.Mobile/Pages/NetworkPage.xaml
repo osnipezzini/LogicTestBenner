@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:LogTest.Mobile.ViewModels"
+             x:DataType="vm:NetworkViewModel"
+             x:Class="LogTest.Mobile.Pages.NetworkPage"
+             Title="NetworkPage">
+    <VerticalStackLayout>
+        <Entry 
+                Placeholder="Insira a primeira rede" 
+                Text="{Binding Source}" 
+                Keyboard="Numeric"/>
+
+        <Entry 
+                Placeholder="Insira a segunda rede" 
+                Text="{Binding Target}" 
+                Keyboard="Numeric"/>
+
+        <Button
+                Text="Conectar"
+                SemanticProperties.Hint="Conecta as redes informadas ao sistema"
+                Command="{Binding ConnectCommand}"
+                HorizontalOptions="Center" />
+    </VerticalStackLayout>
+</ContentPage>

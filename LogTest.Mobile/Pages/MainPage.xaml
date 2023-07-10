@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:LogTest.Mobile.ViewModels"
+             Shell.FlyoutBehavior="Disabled"
+             x:DataType="vm:MainViewModel"
+             x:Class="LogTest.Mobile.Pages.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+            <Entry 
+                Placeholder="Insira o tamanho da rede desejada" 
+                Text="{Binding NetworkLength}" 
+                Keyboard="Numeric"/>
+
+            <Button
+                Text="Iniciar"
+                SemanticProperties.Hint="Inicia o sistema de redes"
+                Command="{Binding StartCommand}"
+                HorizontalOptions="Center" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
