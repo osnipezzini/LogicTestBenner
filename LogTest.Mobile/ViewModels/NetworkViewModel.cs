@@ -27,22 +27,23 @@ public partial class NetworkViewModel : ObservableObject
     public string NetworkLength { get; set; }
 
     [RelayCommand]
-    void Connect()
+    async Task Connect()
     {
         if (!Target.HasValue || !Source.HasValue)
         {
-            Shell.Current.DisplayAlert("Erro", "Deve ser informado o endereço das duas redes para conectar!", "OK");
+            await Shell.Current.DisplayAlert("Erro", "Deve ser informado o endereço das duas redes para conectar!", "OK");
         }
         else
         {
             try
             {
-                _service.Connect(Target.Value, Source.Value);
+                _service.Connect(Source.Value, Target.Value);
+                await Utils.MakeToast($"Os pontos {Source} e {Target} foram conectados com sucesso!");
                 Target = Source = null;
             }
             catch (Exception ex)
             {
-                Shell.Current.DisplayAlert("ERRO FATAL", ex.Message, "OK");
+                await Shell.Current.DisplayAlert("ERRO FATAL", ex.Message, "OK");
             }
         }
     }

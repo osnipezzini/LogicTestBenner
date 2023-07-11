@@ -4,7 +4,7 @@
              xmlns:vm="clr-namespace:LogTest.Mobile.ViewModels"
              x:DataType="vm:NetworkViewModel"
              x:Class="LogTest.Mobile.Pages.NetworkPage"
-             Title="NetworkPage">
+             Title="Gerenciamento de rede">
     <VerticalStackLayout>
         <Entry 
                 Placeholder="Insira a primeira rede" 
